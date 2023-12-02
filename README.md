@@ -74,7 +74,8 @@ CREATE TABLE "public"."patient_entity" (
 
 ### Curls 
 - To add new user
-- curl --location --request POST 'http://localhost:8081/user/add' \
+---
+curl --location --request POST 'http://localhost:8081/user/add' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZWVwYW5zaHUiLCJyb2xlIjpbeyJhdXRob3JpdHkiOiJBZG1pbiJ9XSwiZXhwIjoxNjg4ODE0OTQyLCJpYXQiOjE2ODg3OTY5NDIsInVzZXJuYW1lIjoiZGVlcGFuc2h1In0.raAE2BFHcTvvqJ6qZA2YCx6PVejlCK-kQ1-qocJwSj3QZpWYuxqoYvDXklD5K866sQrU3g5IzqPvBuo2JiVPgA' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=DE6F440AB40B5BFBB08D0E2196FE3DCC' \
