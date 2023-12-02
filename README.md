@@ -92,6 +92,7 @@ curl --location --request POST 'http://localhost:8081/user/add' \
   }'
 
 - To Login
+---
   curl --location --request POST 'http://localhost:8081/login' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=5C4D7BCC800E2FD7F970465D9DF1FBCA' \
@@ -101,7 +102,8 @@ curl --location --request POST 'http://localhost:8081/user/add' \
 
 }'
 
--To Add patient
+- To Add patient
+---
 curl --location --request POST 'http://localhost:8082/patient/add' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiU1RBRkYiLCJ1c2VySWQiOiJkZjA3YjYxYS05NDJjLTQwNzktOGFiMy00ZDk3ZTc1ZDI0ZWQiLCJpYXQiOjE3MDE1MTU2ODl9.be5TF2rIt06lWaIsC_XjAsJQPR1rBnE6EApUa3uXYDi7XWn3s51kn2gpijLlzbSDrjI0NCEGwkx6JJSyrf84NA' \
 --header 'Content-Type: application/json' \
@@ -116,6 +118,7 @@ curl --location --request POST 'http://localhost:8082/patient/add' \
 }'
 
 - To Fetch all patients
+---
 curl --location --request GET 'http://localhost:8082/patient/find?page=0&size=2' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiU1RBRkYiLCJ1c2VySWQiOiJkZjA3YjYxYS05NDJjLTQwNzktOGFiMy00ZDk3ZTc1ZDI0ZWQiLCJpYXQiOjE3MDE1MTU2ODl9.be5TF2rIt06lWaIsC_XjAsJQPR1rBnE6EApUa3uXYDi7XWn3s51kn2gpijLlzbSDrjI0NCEGwkx6JJSyrf84NA' \
 --header 'Content-Type: application/json' \
@@ -130,6 +133,7 @@ curl --location --request GET 'http://localhost:8082/patient/find?page=0&size=2'
 }'
 
 - To discharge a patient
+---
 curl --location --request GET 'http://localhost:8082/patient/discharge?id=100' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjoiU1RBRkYiLCJ1c2VySWQiOiJkZjA3YjYxYS05NDJjLTQwNzktOGFiMy00ZDk3ZTc1ZDI0ZWQiLCJpYXQiOjE3MDE1MDQxMjB9.xNjFNMm8eBWnaTDXZYlKFcIUUpbI0j3sUDfLrvO4dyx3s6ksU6LUEdBVgTZr3HtfwjmxzB55DEau-KaSUyxIiA' \
 --header 'Content-Type: application/json' \
