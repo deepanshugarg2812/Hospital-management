@@ -4,6 +4,7 @@ import com.auth.layer.AuthenticationLib.dto.JwtTokenAuthentication;
 import com.auth.layer.AuthenticationLib.dto.UserDetail;
 import com.auth.layer.AuthenticationLib.exception.ApplicationRuntimeException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -11,8 +12,12 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class JwtTokenAuthenticationProvider implements AuthenticationProvider {
@@ -23,7 +28,8 @@ public class JwtTokenAuthenticationProvider implements AuthenticationProvider {
             UserDetail userDetail = (UserDetail) authentication.getPrincipal();
             String token = redisTemplate.opsForValue().get(userDetail.getUserId());
             if (StringUtils.equals(token, userDetail.getToken())){
-                return new UsernamePasswordAuthenticationToken(userDetail, token, authentication.getAuthorities());
+                log.info("Success");
+                return new JwtTokenAuthentication(userDetail, token, (List<GrantedAuthority>) authentication.getAuthorities());
             } else {
                 throw new BadCredentialsException("Invalid credentials");
             }

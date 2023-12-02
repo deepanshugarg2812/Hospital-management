@@ -42,8 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests().antMatchers("/user/add")
-                        .authenticated().anyRequest().permitAll().and().
+        http.csrf().disable().authorizeRequests().antMatchers("/patient/**").hasAnyAuthority("STAFF")
+                .anyRequest().authenticated().and().
         addFilterBefore(jwtTokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 

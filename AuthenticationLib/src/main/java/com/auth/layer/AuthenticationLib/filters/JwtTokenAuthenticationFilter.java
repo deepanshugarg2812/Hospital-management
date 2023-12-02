@@ -2,18 +2,23 @@ package com.auth.layer.AuthenticationLib.filters;
 
 import com.auth.layer.AuthenticationLib.dto.JwtTokenAuthentication;
 import com.auth.layer.AuthenticationLib.dto.UserDetail;
+import com.auth.layer.AuthenticationLib.exception.ApplicationRuntimeException;
 import com.auth.layer.AuthenticationLib.utils.TokenUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -59,6 +64,20 @@ public class JwtTokenAuthenticationFilter extends AbstractAuthenticationProcessi
             throw e;
         } catch (Exception e) {
             throw new AuthenticationServiceException(e.getMessage());
+        }
+    }
+
+    @Override
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
+                                            Authentication authResult) throws IOException, ServletException {
+        try {
+            SecurityContext securityContext = SecurityContextHolder.getContext();
+            JwtTokenAuthentication jwtTokenAuthentication = (JwtTokenAuthentication) authResult;
+            securityContext.setAuthentication(jwtTokenAuthentication);
+            chain.doFilter(request, response);
+        } catch (Exception e) {
+            throw new ApplicationRuntimeException("Success auth", e,
+                    HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
     }
 }

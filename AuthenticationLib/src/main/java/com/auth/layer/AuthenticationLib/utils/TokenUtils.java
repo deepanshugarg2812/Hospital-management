@@ -24,7 +24,7 @@ public class TokenUtils {
             UserDetail userDetail = new UserDetail();
             userDetail.setUserId((String) body.get("userId"));
             userDetail.setRole((String) body.get("role"));
-            userDetail.setToken((String) body.get("role"));
+            userDetail.setToken(token);
             return userDetail;
         } catch (AuthenticationServiceException e) {
             throw e;
