@@ -1,8 +1,7 @@
-package com.user.management.dto.response;
+package com.auth.layer.AuthenticationLib.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package com.user.management.exception;
+package com.auth.layer.AuthenticationLib.exception;
 
 import lombok.Getter;
 

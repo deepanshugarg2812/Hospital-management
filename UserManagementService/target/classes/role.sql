@@ -1,0 +1,2 @@
+insert into role(role_id, created_date, modified_date, role_name) values (1, CURRENT_DATE, CURRENT_DATE, 'STAFF');
+insert into role(role_id, created_date, modified_date, role_name) values (2, CURRENT_DATE, CURRENT_DATE, 'DOCTOR');

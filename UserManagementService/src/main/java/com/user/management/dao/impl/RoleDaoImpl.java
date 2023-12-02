@@ -4,7 +4,7 @@ import com.user.management.convertor.CommonConvertor;
 import com.user.management.dao.RoleDao;
 import com.user.management.dto.RoleDto;
 import com.user.management.entity.Role;
-import com.user.management.exception.ApplicationRuntimeException;
+import com.auth.layer.AuthenticationLib.exception.ApplicationRuntimeException;
 import com.user.management.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;

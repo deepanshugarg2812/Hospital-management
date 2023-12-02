@@ -1,9 +1,9 @@
-package com.user.management.controller;
+package com.auth.layer.AuthenticationLib.controller;
 
-import com.user.management.dto.response.ResponseWrapper;
-import com.user.management.exception.ApplicationRuntimeException;
+
+import com.auth.layer.AuthenticationLib.dto.response.ResponseWrapper;
+import com.auth.layer.AuthenticationLib.exception.ApplicationRuntimeException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

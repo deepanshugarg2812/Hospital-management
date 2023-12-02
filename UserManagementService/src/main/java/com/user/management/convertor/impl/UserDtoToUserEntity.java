@@ -3,7 +3,7 @@ package com.user.management.convertor.impl;
 import com.user.management.convertor.CommonConvertor;
 import com.user.management.dto.UserDto;
 import com.user.management.entity.Users;
-import com.user.management.exception.ApplicationRuntimeException;
+import com.auth.layer.AuthenticationLib.exception.ApplicationRuntimeException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;

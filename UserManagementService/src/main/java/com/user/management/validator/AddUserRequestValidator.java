@@ -1,7 +1,7 @@
 package com.user.management.validator;
 
 import com.user.management.dto.request.AddUserDto;
-import com.user.management.exception.ApplicationRuntimeException;
+import com.auth.layer.AuthenticationLib.exception.ApplicationRuntimeException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;

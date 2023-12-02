@@ -5,7 +5,7 @@ import com.user.management.dao.RoleDao;
 import com.user.management.dto.RoleDto;
 import com.user.management.dto.UserDto;
 import com.user.management.dto.request.AddUserDto;
-import com.user.management.exception.ApplicationRuntimeException;
+import com.auth.layer.AuthenticationLib.exception.ApplicationRuntimeException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

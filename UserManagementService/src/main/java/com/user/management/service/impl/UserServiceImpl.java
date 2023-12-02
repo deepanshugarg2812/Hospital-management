@@ -4,7 +4,7 @@ import com.user.management.convertor.CommonConvertor;
 import com.user.management.dao.UserDao;
 import com.user.management.dto.UserDto;
 import com.user.management.dto.request.AddUserDto;
-import com.user.management.exception.ApplicationRuntimeException;
+import com.auth.layer.AuthenticationLib.exception.ApplicationRuntimeException;
 import com.user.management.service.UserService;
 import com.user.management.validator.AddUserRequestValidator;
 import lombok.RequiredArgsConstructor;
